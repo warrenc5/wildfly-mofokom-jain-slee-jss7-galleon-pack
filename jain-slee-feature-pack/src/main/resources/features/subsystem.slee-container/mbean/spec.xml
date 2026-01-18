@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<feature-spec xmlns="urn:jboss:galleon:feature-spec:1.0" name="subsystem.slee-container.mbean">
+    <annotation name="jboss-op">
+        <elem name="name" value="add"/>
+    </annotation>
+    <annotation name="feature-branch">
+        <elem name="id" value="mbean"/>
+    </annotation>
+    <refs>
+        <ref feature="profile" nillable="true"/>
+    </refs>
+    <params>
+        <param name="name" nillable="true"/>
+        <param name="property" feature-id="true"/>
+        <param name="profile" feature-id="true" default="GLN_UNDEFINED"/>
+    </params>
+</feature-spec>

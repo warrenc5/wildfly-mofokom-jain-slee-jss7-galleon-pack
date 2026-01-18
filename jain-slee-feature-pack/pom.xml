@@ -1,0 +1,126 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mobicents.servers.jainslee.core</groupId>
+        <artifactId>slee-container-build</artifactId>
+        <version>9.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
+
+    <packaging>pom</packaging>
+
+    <build>                
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.galleon-plugins</groupId>
+                <artifactId>wildfly-galleon-maven-plugin</artifactId>
+                <version>8.1.1.Final-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>mobicents-slee-galleon-feature-pack-build</id>
+                        <goals>
+                            <goal>build-feature-pack</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <!--
+                            <generateCompleteModel>false</generateCompleteModel>
+                                                        -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>slee-container-build-as7-extension</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>slee-container-build-as7-modules</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-tree</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.restcomm.cluster</groupId>
+            <artifactId>timers</artifactId>
+            <version>7.2.1-3</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.restcomm.cluster</groupId>
+            <artifactId>core</artifactId>
+            <version>7.2.1-3</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.restcomm.cluster</groupId>
+            <artifactId>cache</artifactId>
+            <version>7.2.1-3</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-galleon-pack</artifactId>
+            <version>${version.wildfly.core}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-core-galleon-pack</artifactId>
+            <version>${version.wildfly.core3}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-ee-galleon-pack</artifactId>
+            <version>${version.wildfly.core}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-datasources-galleon-pack</artifactId>
+            <version>11.2.0.Final</version>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>jboss-release</id>
+            <name>Jboss Release</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

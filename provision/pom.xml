@@ -1,0 +1,183 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mobicents.servers.jainslee.core</groupId>
+        <artifactId>slee-container-build</artifactId>
+        <version>9.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>mobicents-slee-provision</artifactId>
+
+    <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jboss.galleon</groupId>
+                <artifactId>galleon-maven-plugin</artifactId>
+                <version>7.0.0.Final</version>
+                <executions>
+                    <execution>
+                        <id>server-provisioning</id>
+                        <goals>
+                            <goal>provision</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <install-dir>${project.build.directory}/${project.build.finalName}</install-dir>
+                            <record-state>false</record-state>
+                            <log-time>${galleon.log.time}</log-time>
+                            <offline>true</offline>
+                            <feature-packs>
+                                <feature-pack>
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-galleon-pack</artifactId>
+                                    <version>${version.org.wildfly}</version>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>false</inherit-configs>
+                                </feature-pack>
+                                <feature-pack> 
+                                    <groupId>org.wildfly</groupId>
+                                    <artifactId>wildfly-datasources-galleon-pack</artifactId>
+                                    <version>3.0.0.Final</version>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>true</inherit-configs>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>false</inherit-configs>
+                                </feature-pack>
+                                <feature-pack>
+                                    <groupId>org.mobicents.protocols.ss7</groupId>
+                                    <artifactId>wildfly-restcomm-ss7-galleon-pack</artifactId>
+                                    <version>${project.version}</version>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>false</inherit-configs>
+                                </feature-pack>
+                            </feature-packs>
+                            <configurations>
+                                <config>
+                                    <model>standalone</model>
+                                    <name>standalone.xml</name>
+                                    <layers>
+                                        <layer>restcomm-ss7</layer>
+                                        <layer>mobicents-slee</layer>
+                                        <layer>jaxrs</layer>
+                                        <layer>management</layer>
+                                        <layer>logging</layer>
+                                        <layer>security-manager</layer>
+                                        <layer>management-security-realm</layer>
+                                        <layer>h2database-driver</layer>
+                                        <layer>h2database-datasource</layer>
+                                        <layer>h2database-default-datasource</layer>
+                                    </layers>
+                                </config>
+                            </configurations>
+                            <plugin-options>
+                                <!--
+                                <jboss-maven-dist>false</jboss-maven-dist>
+                                            -->
+                                <jboss-fork-embedded>true</jboss-fork-embedded>
+                                <optional-packages>passive+</optional-packages>
+                            </plugin-options>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>apache-xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                        <version>2.9.1</version>
+                    </dependency>
+                    <!--
+                    <dependency>      
+                        <groupId>org.jboss.galleon</groupId>
+                        <artifactId>galleon-core</artifactId>
+                        <version>7.0.0.Final</version>
+                    </dependency>    
+                    <dependency>
+                        <groupId>org.wildfly.galleon-plugins</groupId>
+                        <artifactId>wildfly-galleon-plugins</artifactId>
+                        <version>7.4.0.Final</version>
+                    </dependency>
+                    -->
+                </dependencies>
+            </plugin>
+ 
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-galleon-pack</artifactId>
+            <version>${version.wildfly.core}</version>
+            <type>zip</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.mobicents.protocols.ss7</groupId>
+            <artifactId>restcomm-ss7-wildfly-extension</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        -->
+        <!-- FOR mvnDebugging the actual plugins
+<dependency>      
+    <groupId>org.jboss.galleon</groupId>
+    <artifactId>galleon-maven-plugin</artifactId>
+    <version>7.0.0.Final</version>
+</dependency>
+<dependency>      
+    <groupId>org.jboss.galleon</groupId>
+    <artifactId>galleon-api</artifactId>
+    <version>7.0.0.Final</version>
+</dependency>
+<dependency>      
+    <groupId>org.jboss.galleon</groupId>
+    <artifactId>galleon-core</artifactId>
+    <version>7.0.0.Final</version>
+</dependency>
+<dependency>
+    <groupId>org.wildfly.galleon-plugins</groupId>
+    <artifactId>wildfly-galleon-plugins</artifactId>
+    <version>7.4.0.Final</version>
+</dependency>
+        -->
+             
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+    <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>

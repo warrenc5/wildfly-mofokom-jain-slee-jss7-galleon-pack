@@ -1,0 +1,59 @@
+<!--
+~ Copyright The WildFly Authors
+~ SPDX-License-Identifier: Apache-2.0
+~
+-->
+<build xmlns="urn:wildfly:feature-pack-build:3.0" producer="org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack">
+    
+    <dependencies>
+        <dependency group-id="org.wildfly" artifact-id="wildfly-ee-galleon-pack">
+            <name>org.wildfly:wildfly-ee-galleon-pack</name>
+            <packages inherit="true">
+                <exclude name="product.conf"/>
+            </packages>
+            <default-configs inherit="false"/>
+        </dependency>
+        <dependency group-id="org.wildfly" artifact-id="wildfly-datasources-galleon-pack">
+            <name>org.wildfly:wildfly-datasources-galleon-pack</name>
+            <packages inherit="true">
+                <exclude name="product.conf"/>
+            </packages>
+            <default-configs inherit="false"/>
+        </dependency>
+        <dependency group-id="org.wildfly" artifact-id="wildfly-galleon-pack">
+            <name>org.wildfly:wildfly-galleon-pack</name>
+            <default-configs inherit="false"/>
+            <packages inherit="true">
+            </packages>
+        </dependency>
+        <dependency group-id="org.wildfly.core" artifact-id="wildfly-core-galleon-pack">
+            <name>org.wildfly.core:wildfly-core-galleon-pack</name>
+            <default-configs inherit="false"/>
+            <packages inherit="true">
+            </packages>
+        </dependency>
+        <dependency group-id="org.wildfly" artifact-id="wildfly-servlet-galleon-pack">
+            <name>org.wildfly:wildfly-servlet-galleon-pack</name>
+            <default-configs inherit="false"/>
+            <packages inherit="true">
+            </packages>
+        </dependency>
+    </dependencies>
+        
+    <default-packages>
+        <package name="org.telestax.slee.container.extension"/>
+        <package name="org.telestax.slee.container.lib"/>
+    </default-packages>
+    <!--
+<generate-feature-specs>
+    <extensions>
+        <standalone>
+            <extension>org.telestax.slee.container.extension</extension>
+        </standalone>
+        <domain>
+            <extension>org.telestax.slee.container.extension</extension>
+        </domain>
+    </extensions>
+</generate-feature-specs>
+    -->
+</build>

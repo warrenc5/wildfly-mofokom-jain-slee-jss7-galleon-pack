@@ -1,0 +1,82 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>mobi.mofokom.slee</groupId>
+        <artifactId>jain-slee-annotations-parent</artifactId>
+        <version>1.0.6-SNAPSHOT</version>
+    </parent>
+
+    <groupId>mobi.mofokom.javax.slee</groupId>
+    <artifactId>wildfly-jain-slee-annotations-galleon-pack</artifactId>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <version.wildfly.core>21.0.2.Final</version.wildfly.core>
+        <version.mobicents>9.0.0-SNAPSHOT</version.mobicents>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wildfly.galleon-plugins</groupId>
+                <artifactId>wildfly-galleon-maven-plugin</artifactId>
+                <version>8.1.1.Final-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build-feature-pack</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>jain-slee-annotations</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mobi.mofokom.slee</groupId>
+            <artifactId>jain-slee-annotations-processor</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-galleon-pack</artifactId>
+            <version>${version.wildfly.core}</version>
+            <type>zip</type>
+        </dependency>
+                -->
+        <dependency>
+            <groupId>org.mobicents.servers.jainslee.core</groupId>
+            <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
+            <version>${version.mobicents}</version>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga</id>
+            <name>Redhat GA</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+        </pluginRepository>
+
+
+    </pluginRepositories>
+</project>

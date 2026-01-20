@@ -8,40 +8,17 @@
         <layer name="jmx-remoting"/>
         <layer name="jpa"/>
         <!--
-    <layer name="infinispan"/>
-    <layer name="jgroups"/>
-    <layer name="jpa"/>
-    <layer name="transaction"/>
-    <layer name="h2.data-source"/>
-
+        <layer name="infinispan"/>
+        <layer name="jgroups"/>
+        <layer name="jpa"/>
+        <layer name="transaction"/>
+        <layer name="h2.data-source"/>
         <layer name="resource-adaptors"/>
         <layer name="sar"/>
         -->
     </dependencies>
 
-    <!--
     <feature-group name="slee-container"/>
-    -->
-    
-    <feature spec="subsystem.slee-container">
-        <!--
-<param name="user-name" value="${env.MARIADB_USER}"/>
-<param name="password" value="${env.MARIADB_PASSWORD}"/>
-        <feature spec="subsystem.slee-container.cache-config"/>
-        <feature spec="subsystem.slee-container.mbean">
-            <param name="name" value="MobicentsManagement"/>
-        </feature>
-        -->
-        <!--
-        <feature spec="subsystem.slee-container.mbean">
-            <param name="name" value="EventRouterConfiguration"/>
-            <feature spec="subsystem.slee-container.mbean.property">
-                <param name="name" value="test1"/>
-                <param name="value" value="1234"/>
-            </feature>
-        </feature>
-        -->
-    </feature>
 
     <packages>
         <package name="org.telestax.slee.container.lib"/>

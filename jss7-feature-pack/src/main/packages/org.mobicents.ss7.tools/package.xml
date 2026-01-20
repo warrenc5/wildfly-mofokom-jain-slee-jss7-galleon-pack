@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+
+<package-spec xmlns="urn:jboss:galleon:package:2.0" name="tools">
+    <dependencies>
+        <package name="bin.common"/>
+        <package name="bin.vaulttools" optional="true"/>
+    </dependencies>
+</package-spec>

@@ -39,6 +39,6 @@
         </dependency>
     </dependencies>
     <default-packages>
-        <package name="mobi.mofokom.test" />
+        <package name="mobi.mofokom.jain-slee-annotations" />
     </default-packages>
 </build>

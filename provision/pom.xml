@@ -17,7 +17,7 @@
             <plugin>
                 <groupId>org.jboss.galleon</groupId>
                 <artifactId>galleon-maven-plugin</artifactId>
-                <version>7.0.0.Final</version>
+                <version>7.0.1.Final-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <id>server-provisioning</id>
@@ -79,10 +79,10 @@
                                 </config>
                             </configurations>
                             <plugin-options>
-                                <!--
-                                <jboss-maven-dist>false</jboss-maven-dist>
-                                            -->
-                                <jboss-fork-embedded>true</jboss-fork-embedded>
+                            <!--
+                                <jboss-maven-dist>${dist}</jboss-maven-dist>
+                                -->
+                                <jboss-fork-embedded/>
                                 <optional-packages>passive+</optional-packages>
                             </plugin-options>
                         </configuration>
@@ -138,7 +138,7 @@
             <version>${project.version}</version>
         </dependency>
         -->
-        <!-- FOR mvnDebugging the actual plugins
+        <!--
 <dependency>      
     <groupId>org.jboss.galleon</groupId>
     <artifactId>galleon-maven-plugin</artifactId>

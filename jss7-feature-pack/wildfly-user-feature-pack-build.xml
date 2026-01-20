@@ -42,4 +42,14 @@
         <package name="org.mobicents.ss7.modules"/>
         <package name="org.mobicents.ss7.extension"/>
     </default-packages>
+    <generate-feature-specs>
+        <extensions>
+            <standalone>
+                <extension>org.mobicents.ss7.extension</extension>
+            </standalone>
+            <domain>
+                <extension>org.mobicents.ss7.extension</extension>
+            </domain>
+        </extensions>
+    </generate-feature-specs>
 </build>

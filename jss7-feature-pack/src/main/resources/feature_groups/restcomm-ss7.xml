@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+~ Copyright The WildFly Authors
+~ SPDX-License-Identifier: Apache-2.0
+~
+-->
+<feature-group-spec
+    name="restcomm-ss7"
+    xmlns="urn:jboss:galleon:feature-group:1.0"
+>
+<feature spec="subsystem.restcomm-ss7">
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SCTPManagement" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="optionSctpDisableFragments" />
+            <param name="value" value="true" />
+            <param name="type" value="bool" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="optionSctpFragmentInterleave" />
+            <param name="value" value="0" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="optionSoRcvbuf" />
+            <param name="value" value="8192" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="optionSctpInitMaxstreams_MaxOutStreams" />
+            <param name="value" value="2" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="optionSctpInitMaxstreams_MaxInStreams" />
+            <param name="value" value="2" />
+            <param name="type" value="int" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SCTPShellExecutor" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RoutingLabelFormat" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="format" />
+            <param name="value" value="ITU" />
+            <param name="type" value="String" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="Mtp3UserPart" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="productName" />
+            <param name="value" value="TelScale-jSS7" />
+            <param name="type" value="String" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="transportManagement" />
+            <param name="value" value="SCTPManagement" />
+            <param name="type" value="Bean" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="routingLabelFormat" />
+            <param name="value" value="RoutingLabelFormat" />
+            <param name="type" value="Bean" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="maxSequenceNumber" />
+            <param name="value" value="256" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="maxAsForRoute" />
+            <param name="value" value="2" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="deliveryMessageThreadCount" />
+            <param name="value" value="1" />
+            <param name="type" value="int" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="M3UAShellExecutor" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="mtp3UserParts" />
+            <param name="value" value="empty" />
+            <param name="type" value="Map" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SS7Clock" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SS7Scheduler" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="CircuitManager" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SccpStack" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="mtp3UserParts" />
+            <param name="value" value="empty" />
+            <param name="type" value="Map" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="SccpExecutor" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="TcapStackMap" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="sccpStack" />
+            <param name="value" value="SccpStack" />
+            <param name="type" value="Bean" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="ssn" />
+            <param name="value" value="7" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="previewMode" />
+            <param name="value" value="false" />
+            <param name="type" value="bool" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="MapStack" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="tcapStack" />
+            <param name="value" value="TcapStackMap" />
+            <param name="type" value="Bean" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="MAPSS7Service" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="serviceName" />
+            <param name="value" value="MAP" />
+            <param name="type" value="String" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="mapStack" />
+            <param name="value" value="MapStack" />
+            <param name="type" value="Bean" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="jndiName" />
+            <param name="value" value="java:/restcomm/ss7/map" />
+            <param name="type" value="String" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="ShellExecutor" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="address" />
+            <param name="value" value="127.0.0.1" />
+            <param name="type" value="String" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="port" />
+            <param name="value" value="3435" />
+            <param name="type" value="int" />
+        </feature>
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="securityDomain" />
+            <param name="value" value="jmx-console" />
+            <param name="type" value="String" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="Ss7Management" />
+        <feature spec="subsystem.restcomm-ss7.mbean.property">
+            <param name="name" value="agentId" />
+            <param name="value" value="jboss" />
+            <param name="type" value="String" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommAlarmManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommStatisticManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommSctpManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommM3uaManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommSccpManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommTcapManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommTcapMapManagement" />
+    </feature>
+    <feature spec="subsystem.restcomm-ss7.mbean">
+        <param name="name" value="RestcommTcapCapManagement" />
+        </feature>
+    </feature>
+
+</feature-group-spec>

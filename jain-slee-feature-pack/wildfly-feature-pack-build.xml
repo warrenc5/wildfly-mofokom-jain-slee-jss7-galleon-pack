@@ -44,16 +44,14 @@
         <package name="org.telestax.slee.container.extension"/>
         <package name="org.telestax.slee.container.lib"/>
     </default-packages>
-    <!--
-<generate-feature-specs>
-    <extensions>
-        <standalone>
-            <extension>org.telestax.slee.container.extension</extension>
-        </standalone>
-        <domain>
-            <extension>org.telestax.slee.container.extension</extension>
-        </domain>
-    </extensions>
-</generate-feature-specs>
-    -->
+    <generate-feature-specs>
+        <extensions>
+            <standalone>
+                <extension>org.telestax.slee.container.extension</extension>
+            </standalone>
+            <domain>
+                <extension>org.telestax.slee.container.extension</extension>
+            </domain>
+        </extensions>
+    </generate-feature-specs>
 </build>

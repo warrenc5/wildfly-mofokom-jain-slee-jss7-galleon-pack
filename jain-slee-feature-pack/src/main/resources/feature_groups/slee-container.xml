@@ -1,8 +1,178 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 ~ Copyright The WildFly Authors
 ~ SPDX-License-Identifier: Apache-2.0
 ~
 -->
-<feature-group-spec name="slee-container" xmlns="urn:jboss:galleon:feature-group:1.0">
+<feature-group-spec
+    name="slee-container"
+    xmlns="urn:jboss:galleon:feature-group:1.0"
+>
+    <feature spec="subsystem.logging">
+        <feature spec="subsystem.logging.logger">
+            <param
+                name="logger"
+                value="org.mobicents.slee.container.util.ObjectCloner"
+            />
+            <param name="level" value="INFO" />
+        </feature>
+    </feature>
+    <feature spec="subsystem.slee-container">
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="CacheExecutorConfiguration" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="cacheExecutorThreads" />
+                <param name="value" value="16" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="cacheExecutorTerminateTimeout" />
+                <param name="value" value="1000" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="cacheExecutorCommandTimeout" />
+                <param name="value" value="1000" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="EventContextFactoryConfiguration" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param
+                    name="name"
+                    value="defaultEventContextSuspensionTimeout"
+                />
+                <param name="value" value="10000" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="EventRouterConfiguration" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="eventRouterThreads" />
+                <param name="value" value="64" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="collectStats" />
+                <param name="value" value="true" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="confirmSbbEntityAttachement" />
+                <param name="value" value="true" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="executorMapperClassName" />
+                <param
+                    name="value"
+                    value="org.mobicents.slee.runtime.eventrouter.mapping.ActivityHashingEventRouterExecutorMapper"
+                />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="MobicentsManagement" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="entitiesRemovalDelay" />
+                <param name="value" value="1" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param
+                    name="name"
+                    value="initializeReferenceDataTypesWithNull"
+                />
+                <param name="value" value="true" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="H2DBConfig" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="persistProfiles" />
+                <param name="value" value="true" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="clusteredProfiles" />
+                <param name="value" value="false" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="hibernateDatasource" />
+                <param
+                    name="value"
+                    value="java:jboss/datasources/H2DatabaseDS"
+                />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="hibernateDialect" />
+                <param name="value" value="org.hibernate.dialect.H2Dialect" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="RmiServerInterface" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="rmiAddress" />
+                <param name="value" value="127.0.0.1" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="rmiPort" />
+                <param name="value" value="1099" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="SleeTCKPluginWrapper" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="active" />
+                <param name="value" value="false" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.mbean">
+            <param name="name" value="CongestionControlConfiguration" />
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="periodBetweenChecks" />
+                <param name="value" value="0" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="minFreeMemoryToTurnOn" />
+                <param name="value" value="10" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="minFreeMemoryToTurnOff" />
+                <param name="value" value="20" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="refuseStartActivity" />
+                <param name="value" value="true" />
+            </feature>
+            <feature spec="subsystem.slee-container.mbean.property">
+                <param name="name" value="refuseFireEvent" />
+                <param name="value" value="false" />
+            </feature>
+        </feature>
+        <feature spec="subsystem.slee-container.cache-config">
+        <!--
+        &lt;?xml version="1.0" encoding="UTF-8"?>
+				&lt;infinispan
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="urn:infinispan:config:8.1 http://www.infinispan.org/schemas/infinispan-config-8.1.xsd"
+					xmlns="urn:infinispan:config:8.1">
+					&lt;cache-container default-cache="slee-default" statistics="false" shutdown-hook="DONT_REGISTER">
+						&lt;local-cache name="slee-default">
+							&lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+							&lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+						&lt;/local-cache>
+        &lt;local-cache name="ac">
+							&lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+							&lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+						&lt;/local-cache>
+        &lt;local-cache name="aci">
+							&lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+							&lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+						&lt;/local-cache>
+        &lt;local-cache name="sbbe">
+							&lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+							&lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+						&lt;/local-cache>
+        &lt;local-cache name="timer-facility">
+							&lt;locking isolation="REPEATABLE_READ" acquire-timeout="30000" striping="false" />
+							&lt;transaction locking="PESSIMISTIC" mode="BATCH"/>
+						&lt;/local-cache>
+					&lt;/cache-container>
+				&lt;/infinispan>
+				-->
+        </feature>
+    </feature>
 </feature-group-spec>

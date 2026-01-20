@@ -26,12 +26,22 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <!--
-                            <generateCompleteModel>false</generateCompleteModel>
-                                                        -->
+<generateCompleteModel>true</generateCompleteModel>
                         </configuration>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.wildfly.core</groupId>
+                        <artifactId>wildfly-embedded</artifactId>
+                        <version>21.1.1.Final</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.wildfly</groupId>
+                        <artifactId>wildfly-client-all</artifactId>
+                        <version>21.0.1.Final</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -96,6 +106,7 @@
             <version>11.2.0.Final</version>
             <type>zip</type>
         </dependency>
+        
     </dependencies>
 
     <pluginRepositories>
@@ -104,12 +115,30 @@
             <name>Redhat GA</name>
             <url>https://maven.repository.redhat.com/ga/</url>
         </pluginRepository>
+
+        <pluginRepository>
+            <id>jboss</id>
+            <name>Jboss Repo</name>
+            <url>https://repository.jboss.org/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+
     </pluginRepositories>
     <repositories>
         <repository>
             <id>jboss-release</id>
             <name>Jboss Release</name>
             <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>jboss</id>
+            <name>Jboss Repo</name>
+            <url>https://repository.jboss.org/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>

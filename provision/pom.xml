@@ -1,4 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -26,8 +30,9 @@
                         </goals>
                         <phase>package</phase>
                         <configuration>
-                            <install-dir>${project.build.directory}/${project.build.finalName}</install-dir>
-                            <record-state>false</record-state>
+                            <install-dir
+                            >${project.build.directory}/${project.build.finalName}</install-dir>
+                            <record-state>true</record-state>
                             <log-time>${galleon.log.time}</log-time>
                             <offline>true</offline>
                             <feature-packs>
@@ -38,7 +43,7 @@
                                     <inherit-packages>true</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
-                                <feature-pack> 
+                                <feature-pack>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-datasources-galleon-pack</artifactId>
                                     <version>3.0.0.Final</version>
@@ -79,10 +84,11 @@
                                 </config>
                             </configurations>
                             <plugin-options>
-                            <!--
                                 <jboss-maven-dist>${dist}</jboss-maven-dist>
+                                
+                                <!--
+                                <jboss-fork-embedded />
                                 -->
-                                <jboss-fork-embedded/>
                                 <optional-packages>passive+</optional-packages>
                             </plugin-options>
                         </configuration>
@@ -95,11 +101,11 @@
                         <version>2.9.1</version>
                     </dependency>
                     <!--
-                    <dependency>      
+                    <dependency>
                         <groupId>org.jboss.galleon</groupId>
                         <artifactId>galleon-core</artifactId>
                         <version>7.0.0.Final</version>
-                    </dependency>    
+                    </dependency>
                     <dependency>
                         <groupId>org.wildfly.galleon-plugins</groupId>
                         <artifactId>wildfly-galleon-plugins</artifactId>
@@ -108,7 +114,7 @@
                     -->
                 </dependencies>
             </plugin>
- 
+
         </plugins>
     </build>
 
@@ -139,17 +145,17 @@
         </dependency>
         -->
         <!--
-<dependency>      
+<dependency>
     <groupId>org.jboss.galleon</groupId>
     <artifactId>galleon-maven-plugin</artifactId>
     <version>7.0.0.Final</version>
 </dependency>
-<dependency>      
+<dependency>
     <groupId>org.jboss.galleon</groupId>
     <artifactId>galleon-api</artifactId>
     <version>7.0.0.Final</version>
 </dependency>
-<dependency>      
+<dependency>
     <groupId>org.jboss.galleon</groupId>
     <artifactId>galleon-core</artifactId>
     <version>7.0.0.Final</version>
@@ -160,7 +166,7 @@
     <version>7.4.0.Final</version>
 </dependency>
         -->
-             
+
     </dependencies>
 
     <pluginRepositories>

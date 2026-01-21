@@ -1,40 +1,17 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="restcomm-ss7">
     <dependencies>
-        <layer name="mobicents-slee"/>
-        <layer name="jmx"/>
-        <layer name="legacy-security"/>
+        <layer name="mobicents-slee" />
+        <layer name="jmx" />
+        <layer name="legacy-security" />
 
     </dependencies>
 
-    <!--
-    <feature-group name="slee-container"/>
-    -->
-    
-    <feature spec="subsystem.restcomm-ss7">
-        <!--
-    <param name="user-name" value="${env.MARIADB_USER}"/>
-    <param name="password" value="${env.MARIADB_PASSWORD}"/>
-        <feature spec="subsystem.slee-container.cache-config"/>
-        <feature spec="subsystem.slee-container.mbean">
-            <param name="name" value="MobicentsManagement"/>
-        </feature>
-        -->
-        <!--
-        <feature spec="subsystem.slee-container.mbean">
-            <param name="name" value="EventRouterConfiguration"/>
-            <feature spec="subsystem.slee-container.mbean.property">
-                <param name="name" value="test1"/>
-                <param name="value" value="1234"/>
-            </feature>
-        </feature>
-        -->
-    </feature>
+    <feature-group name="restcomm-ss7" />
 
     <packages>
-        <package name="org.mobicents.ss7.extension"/>
-        <package name="org.mobicents.ss7.modules"/>
+        <package name="org.restcomm.ss7.extension" />
+        <package name="org.restcomm.ss7.modules" />
     </packages>
 
 </layer-spec>
-

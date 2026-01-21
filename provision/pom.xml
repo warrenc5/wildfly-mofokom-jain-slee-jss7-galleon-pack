@@ -30,8 +30,7 @@
                         </goals>
                         <phase>package</phase>
                         <configuration>
-                            <install-dir
-                            >${project.build.directory}/${project.build.finalName}</install-dir>
+                            <install-dir>${project.build.directory}/${project.build.finalName}</install-dir>
                             <record-state>true</record-state>
                             <log-time>${galleon.log.time}</log-time>
                             <offline>true</offline>
@@ -64,12 +63,20 @@
                                     <inherit-packages>true</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
+                                <feature-pack>
+                                    <groupId>mobi.mofokom.javax.slee</groupId>
+                                    <artifactId>wildfly-jain-slee-annotations-galleon-pack</artifactId>
+                                    <version>1.0.6-SNAPSHOT</version>
+                                    <inherit-packages>true</inherit-packages>
+                                    <inherit-configs>false</inherit-configs>
+                                </feature-pack>
                             </feature-packs>
                             <configurations>
                                 <config>
                                     <model>standalone</model>
                                     <name>standalone.xml</name>
                                     <layers>
+                                        <layer>mofokom-test</layer>
                                         <layer>restcomm-ss7</layer>
                                         <layer>mobicents-slee</layer>
                                         <layer>jaxrs</layer>
@@ -85,7 +92,7 @@
                             </configurations>
                             <plugin-options>
                                 <jboss-maven-dist>${dist}</jboss-maven-dist>
-                                
+
                                 <!--
                                 <jboss-fork-embedded />
                                 -->

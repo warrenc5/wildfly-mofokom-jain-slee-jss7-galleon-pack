@@ -76,6 +76,13 @@
                         </xsl:attribute>
                     </param>
                 </xsl:if>
+                <xsl:if test="@interface">
+                    <param name="interface">
+                        <xsl:attribute name="value">
+                            <xsl:value-of select="@interface"/>
+                        </xsl:attribute>
+                    </param>
+                </xsl:if>
                 <xsl:if test="@reflection">
                     <param name="reflection">
                         <xsl:attribute name="value">

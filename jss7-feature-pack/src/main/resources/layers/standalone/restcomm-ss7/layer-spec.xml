@@ -4,14 +4,12 @@
         <layer name="mobicents-slee" />
         <layer name="jmx" />
         <layer name="legacy-security" />
-
     </dependencies>
 
     <feature-group name="restcomm-ss7" />
 
     <packages>
-        <package name="org.restcomm.ss7.extension" />
-        <package name="org.restcomm.ss7.modules" />
+        <package name="org.mobicents.ss7.modules" />
     </packages>
 
 </layer-spec>

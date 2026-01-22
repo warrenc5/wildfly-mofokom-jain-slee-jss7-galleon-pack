@@ -39,17 +39,17 @@
         </dependency>
     </dependencies>
     <default-packages>
-        <package name="org.restcomm.ss7.commons" />
-        <package name="org.restcomm.ss7.modules" />
-        <package name="org.restcomm.ss7.extension" />
+        <package name="org.mobicents.ss7.commons" />
+        <package name="org.mobicents.ss7.modules" />
+        <package name="org.mobicents.ss7.extension" />
     </default-packages>
     <generate-feature-specs>
         <extensions>
             <standalone>
-                <extension>org.restcomm.ss7.extension</extension>
+                <extension>org.mobicents.ss7.extension</extension>
             </standalone>
             <domain>
-                <extension>org.restcomm.ss7.extension</extension>
+                <extension>org.mobicents.ss7.extension</extension>
             </domain>
         </extensions>
     </generate-feature-specs>

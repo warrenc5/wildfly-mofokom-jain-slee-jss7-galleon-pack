@@ -5,14 +5,21 @@
 ~
 -->
 <feature-group-spec name="restcomm-ss7" xmlns="urn:jboss:galleon:feature-group:1.0">
-<feature spec="subsystem.restcomm-ss7">
 
+<feature spec="subsystem.logging">
+        <feature spec="subsystem.logging.logger">
+                <param name="logger" value="org.mobicents.protocols" />
+                <param name="level" value="DEBUG" />
+            </feature>
+    </feature>
+<feature spec="subsystem.restcomm-ss7">
 <feature spec="subsystem.restcomm-ss7.mbean">
   <param name="mbean" value="SCTPManagement" />
   <param name="name" value="SCTPManagement" />
   <param name="type" value="SCTPManagement" />
   <param name="class" value="org.mobicents.protocols.sctp.netty.NettySctpManagementImpl" />
   <param name="enabled" value="true" />
+  <param name="interface" value="empty" />
   <param name="reflection" value="false" />
   <feature spec="subsystem.restcomm-ss7.mbean.property">
     <param name="property" value="optionSctpDisableFragments" />
@@ -73,6 +80,7 @@
   <param name="type" value="M3UAManagement" />
   <param name="class" value="org.mobicents.protocols.ss7.m3ua.impl.M3UAManagementImpl" />
   <param name="enabled" value="true" />
+  <param name="interface" value="org.mobicents.protocols.ss7.m3ua.M3UAManagement" />
   <param name="reflection" value="true" />
   <feature spec="subsystem.restcomm-ss7.mbean.property">
     <param name="property" value="productName" />
@@ -161,6 +169,7 @@
   <param name="type" value="SccpStack" />
   <param name="class" value="org.mobicents.protocols.ss7.sccp.impl.SccpStackImpl" />
   <param name="enabled" value="true" />
+  <param name="interface" value="empty" />
   <param name="reflection" value="false" />
   <feature spec="subsystem.restcomm-ss7.mbean.property">
     <param name="property" value="mtp3UserParts" />

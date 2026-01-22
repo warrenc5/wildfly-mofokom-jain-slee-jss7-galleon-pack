@@ -16,6 +16,18 @@
 
     <packaging>pom</packaging>
 
+    <properties>
+    <!--
+    <version.org.wildfly>25.0.1.Final</version.org.wildfly>
+    <version.wildfly.core>25.0.1.Final</version.wildfly.core>
+    <version.wildfly.core2>17.0.3.Final</version.wildfly.core2>
+    -->
+        <version.org.wildfly>21.0.1.Final</version.org.wildfly>
+        <version.wildfly.core>21.0.1.Final</version.wildfly.core>
+        <version.wildfly.core2>13.0.3.Final</version.wildfly.core2>
+        <module-artifacts>true</module-artifacts>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -91,7 +103,7 @@
                                 </config>
                             </configurations>
                             <plugin-options>
-                                <jboss-maven-dist>${dist}</jboss-maven-dist>
+                                <jboss-maven-dist>${module-artifacts}</jboss-maven-dist>
 
                                 <!--
                                 <jboss-fork-embedded />

@@ -7,6 +7,10 @@
 <feature-group-spec name="slee-container" xmlns="urn:jboss:galleon:feature-group:1.0">
     <feature spec="subsystem.logging">
         <feature spec="subsystem.logging.logger">
+                <param name="logger" value="org.telestax.slee.container" />
+                <param name="level" value="DEBUG" />
+            </feature>
+    <feature spec="subsystem.logging.logger">
             <param name="logger" value="org.mobicents.slee.container.util.ObjectCloner" />
             <param name="level" value="INFO" />
         </feature>

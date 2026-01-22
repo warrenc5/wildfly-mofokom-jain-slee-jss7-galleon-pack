@@ -3,7 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
 >
-
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -15,6 +14,18 @@
     <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
 
     <packaging>pom</packaging>
+
+    <properties>
+    <version.org.wildfly>21.0.1.Final</version.org.wildfly>
+    <version.wildfly.embedded>21.1.1.Final</version.wildfly.embedded>
+    <!--
+    <version.wildfly.core>13.0.3.Final</version.wildfly.core>
+        <version.org.wildfly>25.0.1.Final</version.org.wildfly>
+        <version.wildfly.core>25.0.1.Final</version.wildfly.core>
+        <version.wildfly.core2>17.0.3.Final</version.wildfly.core2>
+        <version.wildfly.core3>17.0.3.Final</version.wildfly.core3>
+        -->
+    </properties>
 
     <build>
         <plugins>
@@ -38,12 +49,12 @@
                     <dependency>
                         <groupId>org.wildfly.core</groupId>
                         <artifactId>wildfly-embedded</artifactId>
-                        <version>21.1.1.Final</version>
+                        <version>${version.wildfly.embedded}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.wildfly</groupId>
                         <artifactId>wildfly-client-all</artifactId>
-                        <version>21.0.1.Final</version>
+                        <version>${version.org.wildfly}</version>
                     </dependency>
                 </dependencies>
             </plugin>

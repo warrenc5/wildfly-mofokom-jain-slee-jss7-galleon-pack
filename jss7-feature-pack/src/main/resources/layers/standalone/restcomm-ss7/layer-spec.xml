@@ -3,7 +3,10 @@
     <dependencies>
         <layer name="mobicents-slee" />
         <layer name="jmx" />
+        <!-- NOT AVAILABLE IN WILDFLY >21 
+             WILDFLY 21 = OK
         <layer name="legacy-security" />
+        -->
     </dependencies>
 
     <feature-group name="restcomm-ss7" />

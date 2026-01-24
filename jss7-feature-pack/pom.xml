@@ -17,14 +17,44 @@
     <packaging>pom</packaging>
 
     <properties>
-    <version.org.wildfly>21.0.1.Final</version.org.wildfly>
-    <version.wildfly.embedded>21.1.1.Final</version.wildfly.embedded>
-    <!--
-        <version.wildfly.core>25.0.1.Final</version.wildfly.core>
-        <version.wildfly.core2>17.0.3.Final</version.wildfly.core2>
-        <version.wildfly.core3>17.0.3.Final</version.wildfly.core3>
-        -->
+        <version.mobicents>9.0.0-SNAPSHOT</version.mobicents>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>wildfly-21.0.1.Final</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>21.0.1.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+            </properties>
+        </profile>
+        <profile>
+            <id>wildfly-26.1.3.Final</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>26.1.3.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>26.0.1.Final</version.wildfly.embedded>
+            </properties>
+        </profile>
+        <profile>
+            <id>wildfly-39.0.0.Final</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>39.0.0.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
@@ -40,22 +70,32 @@
                         </goals>
                         <phase>compile</phase>
                         <configuration>
-                        <generateCompleteModel>true</generateCompleteModel>
+                            <generateCompleteModel>true</generateCompleteModel>
                         </configuration>
                     </execution>
                 </executions>
                 <dependencies>
-                                <dependency>
-                                    <groupId>org.wildfly.core</groupId>
-                                    <artifactId>wildfly-embedded</artifactId>
-                                    <version>${version.wildfly.embedded}</version>
-                                </dependency>
-                                <dependency>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>wildfly-client-all</artifactId>
-                                    <version>${version.org.wildfly}</version>
-                                </dependency>
-                            </dependencies>
+                    <dependency>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                        <version>2.18.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-core</artifactId>
+                        <version>2.18.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.wildfly.core</groupId>
+                        <artifactId>wildfly-embedded</artifactId>
+                        <version>${version.wildfly.embedded}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.wildfly</groupId>
+                        <artifactId>wildfly-client-all</artifactId>
+                        <version>${version.org.wildfly}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -71,30 +111,31 @@
         <dependency>
             <groupId>org.mobicents.servers.jainslee.core</groupId>
             <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>
-            <version>9.0.0-SNAPSHOT</version>
+            <version>${version.mobicents}</version>
             <type>zip</type>
         </dependency>
         <!--
 <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>wildfly-datasources-galleon-pack</artifactId>
-            <version>11.2.0.Final</version>
-            <type>zip</type>
-            <scope>runtime</scope>
-        </dependency>
-                -->
+    <groupId>org.wildfly</groupId>
+    <artifactId>wildfly-datasources-galleon-pack</artifactId>
+    <version>11.2.0.Final</version>
+    <type>zip</type>
+    <scope>runtime</scope>
+</dependency>
+        -->
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>restcomm-ss7-wildfly-modules</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
-        </dependency><dependency>
+        </dependency>
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>restcomm-ss7-wildfly-extension</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
-            </dependencies>
+    </dependencies>
 
     <pluginRepositories>
         <pluginRepository>

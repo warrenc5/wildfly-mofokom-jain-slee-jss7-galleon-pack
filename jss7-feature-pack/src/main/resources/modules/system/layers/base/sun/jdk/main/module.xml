@@ -31,7 +31,9 @@
         <resource-root path="service-loader-resources" />
     </resources>
     <dependencies>
+    <!-- WILDFLY 21
         <module export="true" name="sun.scripting" />
+        -->
         <system export="true">
             <paths>
 

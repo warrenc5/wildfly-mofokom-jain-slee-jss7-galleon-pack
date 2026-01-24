@@ -11,7 +11,10 @@
 
     <dependencies>
         <module name="sun.jdk" />
+        <!--
         <module name="javax.api" />
+        <module name="javax.xml.bind.api" />
+        -->
         <module name="javax.xml.bind.api" />
         <module name="org.apache.commons.logging" />
         <!--
@@ -28,7 +31,9 @@
         <module name="org.jboss.as.system-jmx" />
         <module name="org.wildfly.security.elytron" />
         <module name="org.jboss.as.security" export="true" />
+        <!--WF25
         <module name="org.picketbox" export="true" />
+        -->
         <module name="org.jboss.modules" />
         <module name="org.jboss.msc" />
         <module name="org.jboss.jts" />

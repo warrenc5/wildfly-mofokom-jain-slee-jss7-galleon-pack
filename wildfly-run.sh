@@ -13,6 +13,5 @@ $BASE/bin/add-user.sh -u admin -p admin
 cp -v ./standalone.sh $BASE/bin/standalone.sh
 
 #$BASE/bin/standalone.sh --debug 
-
-$BASE/bin/standalone.sh --debug --suspend
-#$BASE/bin/standalone.sh
+#$BASE/bin/standalone.sh --debug --suspend
+$BASE/bin/standalone.sh

@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mofokom-test">
+<layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mofokom-slee-annotations">
     <dependencies>
         <layer name="mobicents-slee" />
         <layer name="jsonp" />

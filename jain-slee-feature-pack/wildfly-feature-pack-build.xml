@@ -11,45 +11,34 @@
             <packages inherit="true">
                 <exclude name="product.conf" />
             </packages>
-
-            <!--
             <default-configs inherit="false" />
-            -->
         </dependency>
         <dependency group-id="org.wildfly" artifact-id="wildfly-datasources-galleon-pack">
             <name>org.wildfly:wildfly-datasources-galleon-pack</name>
             <packages inherit="true">
                 <exclude name="product.conf" />
             </packages>
-
-            <!--
             <default-configs inherit="false" />
-            -->
         </dependency>
         <dependency group-id="org.wildfly" artifact-id="wildfly-galleon-pack">
             <name>org.wildfly:wildfly-galleon-pack</name>
-            <!--
-            <default-configs inherit="false" />
-            -->
             <packages inherit="true">
             </packages>
+            <default-configs inherit="false" />
         </dependency>
+        <!-- WF21
         <dependency group-id="org.wildfly.core" artifact-id="wildfly-core-galleon-pack">
             <name>org.wildfly.core:wildfly-core-galleon-pack</name>
-            <!--
             <default-configs inherit="false" />
-            -->
             <packages inherit="true">
             </packages>
         </dependency>
         <dependency group-id="org.wildfly" artifact-id="wildfly-servlet-galleon-pack">
             <name>org.wildfly:wildfly-servlet-galleon-pack</name>
-            <!--
             <default-configs inherit="false" />
-            -->
             <packages inherit="true">
             </packages>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <default-packages>

@@ -1,28 +1,27 @@
 <?xml version="1.0" ?>
 <layer-spec xmlns="urn:jboss:galleon:layer-spec:1.0" name="mobicents-slee">
     <dependencies>
-        <layer name="microprofile-platform"/>
-        <layer name="ee"/>
-        <layer name="ejb"/>
-        <layer name="jmx"/>
-        <layer name="jmx-remoting"/>
-        <layer name="jpa"/>
+        <layer name="microprofile-platform" />
+        <layer name="ee" />
+        <layer name="ejb" />
+        <layer name="jmx" />
+        <layer name="jmx-remoting" />
+        <layer name="jpa" />
+        <!-- TODO: find these layers
+        <layer name="infinispan" />
+        <layer name="jgroups" />
+        <layer name="transaction" />
+        <layer name="resource-adapters" />
+        -->
         <!--
-        <layer name="infinispan"/>
-        <layer name="jgroups"/>
-        <layer name="jpa"/>
-        <layer name="transaction"/>
-        <layer name="h2.data-source"/>
-        <layer name="resource-adaptors"/>
-        <layer name="sar"/>
+        <layer name="sar" />
         -->
     </dependencies>
 
-    <feature-group name="slee-container"/>
+    <feature-group name="slee-container" />
 
     <packages>
-        <package name="org.telestax.slee.container.lib"/>
+        <package name="org.telestax.slee.container.lib" />
     </packages>
 
 </layer-spec>
-

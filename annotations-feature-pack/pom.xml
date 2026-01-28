@@ -21,39 +21,39 @@
     </properties>
 
     <profiles>
-            <profile>
-                <id>wildfly-21.0.1.Final</id>
-                <activation>
-                    <activeByDefault>false</activeByDefault>
-                </activation>
-                <properties>
-                    <version.wildfly>21.0.1.Final</version.wildfly>
-                    <version.org.wildfly>${version.wildfly}</version.org.wildfly>
-                    <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
-                </properties>
-            </profile>
-            <profile>
-                <id>wildfly-26.1.3.Final</id>
-                <activation>
-                    <activeByDefault>true</activeByDefault>
-                </activation>
-                <properties>
-                    <version.wildfly>26.1.3.Final</version.wildfly>
-                    <version.org.wildfly>${version.wildfly}</version.org.wildfly>
-                    <version.wildfly.embedded>26.0.1.Final</version.wildfly.embedded>
-                </properties>
-            </profile>
-            <profile>
-                    <id>wildfly-39.0.0.Final</id>
-                    <activation>
-                        <activeByDefault>false</activeByDefault>
-                    </activation>
-                    <properties>
-                        <version.wildfly>39.0.0.Final</version.wildfly>
-                        <version.org.wildfly>${version.wildfly}</version.org.wildfly>
-                        <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
-                    </properties>
-                </profile>
+        <profile>
+            <id>wildfly-21.0.1.Final</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>21.0.1.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>21.1.1.Final</version.wildfly.embedded>
+            </properties>
+        </profile>
+        <profile>
+            <id>wildfly-26.1.3.Final</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>26.1.3.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>26.0.1.Final</version.wildfly.embedded>
+            </properties>
+        </profile>
+        <profile>
+            <id>wildfly-39.0.0.Final</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <version.wildfly>39.0.0.Final</version.wildfly>
+                <version.org.wildfly>${version.wildfly}</version.org.wildfly>
+                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
@@ -61,7 +61,7 @@
             <plugin>
                 <groupId>org.wildfly.galleon-plugins</groupId>
                 <artifactId>wildfly-galleon-maven-plugin</artifactId>
-                <version>8.1.1.Final-SNAPSHOT</version>
+                <version>8.1.0.Final</version>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -97,7 +97,7 @@
             <version>${version.wildfly.core}</version>
             <type>zip</type>
         </dependency>
-                -->
+        -->
         <dependency>
             <groupId>org.mobicents.servers.jainslee.core</groupId>
             <artifactId>wildfly-mobicents-slee-galleon-pack</artifactId>

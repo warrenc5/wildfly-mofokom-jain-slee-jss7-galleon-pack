@@ -32,10 +32,10 @@
         <artifact name="${org.restcomm.cluster:timers}" />
         <artifact name="${org.infinispan:infinispan-tree}" />
 
-        <!-- NOT IN WILDFLY GALLEON DIST --> 
-        
-        <artifact name="${commons-pool:commons-pool}" /> 
-        <artifact name="${org.apache.commons:commons-lang3}" /> 
+        <!-- NOT IN WILDFLY GALLEON DIST -->
+
+        <artifact name="${commons-pool:commons-pool}" />
+        <artifact name="${org.apache.commons:commons-lang3}" />
     </resources>
 
     <dependencies>
@@ -47,7 +47,7 @@
         <module name="javax.transaction.api" export="true" />
         <module name="javax.xml.bind.api" />
         <module name="org.apache.commons.logging" />
-        <!-- NOT FOR WILDFLY 21 
+        <!-- NOT FOR WILDFLY 21
         <module name="org.apache.commons.lang" export="true" />
         -->
         <module name="org.apache.log4j" />

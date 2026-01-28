@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <version.mobicents>9.0.0-SNAPSHOT</version.mobicents>
         <module-artifacts>true</module-artifacts>
     </properties>
 
@@ -24,37 +25,55 @@
         <profile>
             <id>wildfly-21.0.1.Final</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>WF21</name>
+                </property>
             </activation>
             <properties>
                 <version.wildfly>21.0.1.Final</version.wildfly>
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
                 <version.org.core>${version.wildfly}</version.org.core>
                 <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+                <version.wildfly.cli>${version.wildfly}</version.wildfly.cli>
+                <version.wildfly.core>${version.wildfly}</version.wildfly.core>
+                <version.datasources.galleon>3.0.0.Final</version.datasources.galleon>
             </properties>
         </profile>
         <profile>
-            <id>wildfly-25.0.1.Final</id>
+            <id>wildfly-26.1.3.Final</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>WF26</name>
+                </property>
             </activation>
             <properties>
-                <version.wildfly>25.0.1.Final</version.wildfly>
+                <version.wildfly>26.1.3.Final</version.wildfly>
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
                 <version.org.core>${version.wildfly}</version.org.core>
-                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+                <version.wildfly.embedded>26.0.1.Final</version.wildfly.embedded>
+                <version.wildfly.cli>18.1.2.Final</version.wildfly.cli>
+                <version.wildfly.core>${version.wildfly}</version.wildfly.core>
+                <version.datasources.galleon>2.2.6.Final</version.datasources.galleon>
             </properties>
         </profile>
         <profile>
             <id>wildfly-39.0.0.Final</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
+                <property>
+                    <name>WF39</name>
+                </property>
             </activation>
             <properties>
                 <version.wildfly>39.0.0.Final</version.wildfly>
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
                 <version.org.core>${version.wildfly}</version.org.core>
                 <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+                <version.wildfly.cli>${version.wildfly}</version.wildfly.cli>
+                <version.wildfly.core>${version.wildfly}</version.wildfly.core>
+                <version.datasources.galleon>11.3.1.Final</version.datasources.galleon>
             </properties>
         </profile>
     </profiles>
@@ -64,7 +83,7 @@
             <plugin>
                 <groupId>org.jboss.galleon</groupId>
                 <artifactId>galleon-maven-plugin</artifactId>
-                <version>7.0.1.Final-SNAPSHOT</version>
+                <version>7.0.0.Final</version>
                 <executions>
                     <execution>
                         <id>server-provisioning</id>
@@ -78,7 +97,7 @@
                             <log-time>${galleon.log.time}</log-time>
                             <offline>true</offline>
                             <feature-packs>
-                            <feature-pack>
+                                <feature-pack>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-galleon-pack</artifactId>
                                     <version>${version.org.wildfly}</version>
@@ -88,7 +107,7 @@
                                 <feature-pack>
                                     <groupId>org.wildfly</groupId>
                                     <artifactId>wildfly-datasources-galleon-pack</artifactId>
-                                    <version>3.0.0.Final</version>
+                                    <version>${version.datasources.galleon}</version>
                                     <inherit-packages>false</inherit-packages>
                                     <inherit-configs>false</inherit-configs>
                                 </feature-pack>
@@ -127,8 +146,9 @@
                                         <layer>logging</layer>
                                         <layer>security-manager</layer>
                                         <!-- WILDFLY 21 OK
-                                        <layer>management-security-realm</layer>
-                                                -->
+                                <layer>management-security-realm</layer>
+                                        -->
+
                                         <layer>h2database-driver</layer>
                                         <layer>h2database-datasource</layer>
                                         <layer>h2database-default-datasource</layer>
@@ -137,8 +157,10 @@
                             </configurations>
                             <plugin-options>
                                 <jboss-maven-dist>${module-artifacts}</jboss-maven-dist>
+                                <!--
                                 <jboss-fork-embedded />
                                 <optional-packages>passive+</optional-packages>
+                                -->
                             </plugin-options>
                         </configuration>
                     </execution>
@@ -149,6 +171,8 @@
                         <artifactId>xercesImpl</artifactId>
                         <version>2.9.1</version>
                     </dependency>
+                    <!--
+
                     <dependency>
                         <groupId>org.jboss.galleon</groupId>
                         <artifactId>galleon-core</artifactId>
@@ -164,11 +188,11 @@
                         <artifactId>wildfly-config-gen</artifactId>
                         <version>8.1.1.Final-SNAPSHOT</version>
                     </dependency>
-
-                    <dependency>
+                   -->
+                   <dependency>
                         <groupId>org.wildfly.core</groupId>
                         <artifactId>wildfly-cli</artifactId>
-                        <version>${version.wildfly.core3}</version>
+                        <version>${version.wildfly.cli}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -181,6 +205,12 @@
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <version>${version.wildfly.core}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-datasources-galleon-pack</artifactId>
+            <version>${version.datasources.galleon}</version>
             <type>zip</type>
         </dependency>
         <!--
@@ -233,7 +263,7 @@
             <id>redhat-ga</id>
             <name>Redhat GA</name>
             <url>https://maven.repository.redhat.com/ga/</url>
-    <snapshots>
+            <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>

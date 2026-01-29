@@ -177,7 +177,6 @@
                 <path name="sun/security" />
                 <path name="META-INF/services" />
                 <path name="com/sun/nio/sctp" />
-
             </paths>
             <exports>
                 <include-set>

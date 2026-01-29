@@ -138,9 +138,7 @@
                                     <model>standalone</model>
                                     <name>standalone.xml</name>
                                     <layers>
-                                        <!--
                                         <layer>mofokom-slee-annotations</layer>
-                                        -->
                                         <layer>restcomm-ss7</layer>
                                         <layer>mobicents-slee</layer>
                                         <layer>jaxrs</layer>

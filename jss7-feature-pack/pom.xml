@@ -49,7 +49,6 @@
                 <version.wildfly.embedded>26.0.1.Final</version.wildfly.embedded>
                 <version.wildfly.cli>18.1.2.Final</version.wildfly.cli>
                 <version.wildfly.core>26.0.1.Final</version.wildfly.core>
-                <version.datasources.galleon>2.2.6.Final</version.datasources.galleon>
             </properties>
         </profile>
         <profile>
@@ -63,7 +62,9 @@
             <properties>
                 <version.wildfly>39.0.0.Final</version.wildfly>
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
-                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+                <version.wildfly.embedded>31.0.1.Final</version.wildfly.embedded>
+                <version.wildfly.cli>31.0.1.Final</version.wildfly.cli>
+                <version.wildfly.core>31.0.1.Final</version.wildfly.core>
             </properties>
         </profile>
     </profiles>

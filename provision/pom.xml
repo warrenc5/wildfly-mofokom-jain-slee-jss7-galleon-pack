@@ -71,9 +71,9 @@
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
                 <version.org.core>${version.wildfly}</version.org.core>
                 <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
-                <version.wildfly.cli>${version.wildfly}</version.wildfly.cli>
+                <version.wildfly.cli>31.0.1.Final</version.wildfly.cli>
                 <version.wildfly.core>${version.wildfly}</version.wildfly.core>
-                <version.datasources.galleon>11.3.1.Final</version.datasources.galleon>
+                <version.datasources.galleon>11.3.0.Final</version.datasources.galleon>
             </properties>
         </profile>
     </profiles>
@@ -138,7 +138,9 @@
                                     <model>standalone</model>
                                     <name>standalone.xml</name>
                                     <layers>
+                                        <!--
                                         <layer>mofokom-slee-annotations</layer>
+                                        -->
                                         <layer>restcomm-ss7</layer>
                                         <layer>mobicents-slee</layer>
                                         <layer>jaxrs</layer>
@@ -159,10 +161,8 @@
                             </configurations>
                             <plugin-options>
                                 <jboss-maven-dist>${module-artifacts}</jboss-maven-dist>
-                                <!--
                                 <jboss-fork-embedded />
                                 <optional-packages>passive+</optional-packages>
-                                -->
                             </plugin-options>
                         </configuration>
                     </execution>

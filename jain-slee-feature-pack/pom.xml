@@ -65,7 +65,10 @@
             <properties>
                 <version.wildfly>39.0.0.Final</version.wildfly>
                 <version.org.wildfly>${version.wildfly}</version.org.wildfly>
-                <version.wildfly.embedded>${version.wildfly}</version.wildfly.embedded>
+                <version.wildfly.embedded>31.0.1.Final</version.wildfly.embedded>
+                <version.wildfly.cli>31.0.1.Final</version.wildfly.cli>
+                <version.wildfly.core>31.0.1.Final</version.wildfly.core>
+                <version.datasources.galleon>11.3.0.Final</version.datasources.galleon>
             </properties>
         </profile>
     </profiles>
@@ -162,6 +165,7 @@
             <version>${version.org.wildfly}</version>
             <type>zip</type>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.wildfly.core</groupId>
             <artifactId>wildfly-core-galleon-pack</artifactId>
@@ -174,6 +178,7 @@
             <version>${version.org.wildfly}</version>
             <type>zip</type>
         </dependency>
+        -->
         <dependency>
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-ee-galleon-pack</artifactId>

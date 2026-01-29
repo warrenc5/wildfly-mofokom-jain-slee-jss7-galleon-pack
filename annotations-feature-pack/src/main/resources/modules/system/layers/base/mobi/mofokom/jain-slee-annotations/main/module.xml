@@ -70,8 +70,8 @@
                 <path name="org/xml/sax/helpers" />
             </paths>
         </system>
-        <module name="org.apache.xalan" />
-        <module name="org.apache.log4j" />
+        <module name="org.apache.xalan" optional="true" /> <!-- WF39 -->
+        <module name="org.apache.log4j" optional="true" />
         <module name="javax.annotation.api" export="true" />
         <module name="javax.api" />
     </dependencies>

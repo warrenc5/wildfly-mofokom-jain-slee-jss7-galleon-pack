@@ -3,7 +3,12 @@
 ~ SPDX-License-Identifier: Apache-2.0
 ~
 -->
-<build xmlns="urn:wildfly:feature-pack-build:3.0" producer="org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.mobicents.servers.jainslee.core:wildfly-mobicents-slee-galleon-pack">
+
+
+    <family name="wildfly">
+      <criteria name="jakarta-ee-9" />
+    </family>
 
     <dependencies>
         <dependency group-id="org.wildfly" artifact-id="wildfly-ee-galleon-pack">
